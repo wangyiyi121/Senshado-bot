@@ -14,7 +14,7 @@ def on_ready():
 @client.event
 @asyncio.coroutine
 def on_message(message):
-    if message.channel.id=="522188850332696630":
+    if message.channel.id=="493819751529840652":
         l=message.content
         for i in range(len(l)):
             if l[i:i+4]=="http":
