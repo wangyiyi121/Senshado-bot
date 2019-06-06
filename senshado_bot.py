@@ -24,6 +24,6 @@ def on_message(message):
                     break
     if message.channel.id=="496541228771573770":
         if message.content.startswith("makematch"):
-            yield from send_message(message.channel,"Say hello!")
+            yield from client.send_message(message.channel,"Say hello!")
                       
 client.run("NTIyMTU0MDM3MjU3MTc1MDQx.DvG2cA.RTXnK_U2Yzh48ImJU9lzYxcc3lc")
