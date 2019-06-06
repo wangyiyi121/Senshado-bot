@@ -22,14 +22,9 @@ def on_message(message):
                     yield from client.send_message(message.author,"Hey there! Please don't send links in the general channel. Your message was auto deleted by the bot made by the Sensha-do Federation.\nHere's your message if you wish to edit it:\n%s" % message.content)
                     yield from client.delete_message(message)
                     break
-                    
-@client.event
-@asyncio.coroutine
-def on_message(message):
     if message.channel.id=="496541228771573770":
         if message.content.startswith('$greet'):
             channel = message.channel
             yield from channel.send('Say hello!')
-
-                
+                      
 client.run("NTIyMTU0MDM3MjU3MTc1MDQx.DvG2cA.RTXnK_U2Yzh48ImJU9lzYxcc3lc")
