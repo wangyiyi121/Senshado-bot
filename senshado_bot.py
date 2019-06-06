@@ -23,7 +23,7 @@ def on_message(message):
                     yield from client.delete_message(message)
                     break
     if message.channel.id=="496541228771573770":
-        if message.content.startswith('$greet'):
+        if message.content.startswith("makematch"):
             yield from send_message(message.channel,"Say hello!")
                       
 client.run("NTIyMTU0MDM3MjU3MTc1MDQx.DvG2cA.RTXnK_U2Yzh48ImJU9lzYxcc3lc")
