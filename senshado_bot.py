@@ -23,7 +23,7 @@ def on_message(message):
                     yield from client.send_message(message.author,"Hey there! Please don't send links in the general channel. Your message was auto deleted by the bot made by the Sensha-do Federation.\nHere's your message if you wish to edit it:\n%s" % message.content)
                     yield from client.delete_message(message)
                     break
-    if message.channel.id=="496541228771573770":
+    if message.channel.id=="538748795547025408":
         if message.content.startswith("makematch"):
             #yield from client.send_message(message.channel,"Say hello!")
             maps=[['Fulda Gap'], ['Second Battle of El Alamein'], ['Frozen Pass'],
@@ -56,9 +56,9 @@ def on_message(message):
                         roundd=str(i+1)
                         time=random.choice(times)
                         weather=random.choice(weathers)
-                        yield from client.send_message(message.channel,"""->The map for round %s will be %s.
-    The weather setting will be "%s".
-    The time setting will be "%s".
+                        yield from client.send_message(message.channel,"""->The map for round %s will be __**%s**__.
+    The weather setting will be __**%s**__.
+    The time setting will be __**%s**__.
     """ % (roundd,mapp,weather,time))
                 except:
                     yield from client.send_message(message.channel,"Please respect the bot. The proper command is:\nmakematch {n}\nFor example:\nmakematch 5")
