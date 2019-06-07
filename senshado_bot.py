@@ -44,7 +44,7 @@ def on_message(message):
                      'Overcast', 'Blind', 'Rain']
 
             random.shuffle(maps)
-            k=input()
+            k=message.content
             if len(k.split()) != 2:
                 yield from client.send_message(message.channel,"Please respect the bot. The proper command is:\nmakematch {n}\nFor example:\nmakematch 5")
             else:
