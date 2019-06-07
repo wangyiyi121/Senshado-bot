@@ -50,6 +50,8 @@ def on_message(message):
             else:
                 try:
                     n = int(k.split()[1])
+                    if n>10:
+                        n=10
 
                     for i in range(n):
                         mapp=random.choice(maps[i])
