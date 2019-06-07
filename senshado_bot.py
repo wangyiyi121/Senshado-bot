@@ -39,8 +39,8 @@ def on_message(message):
                ['Ardennes'], ['Middle East'], ['Maginot Line'], ['Italy'],
                ['American Desert'], ['Alaska'], ['Vietnam Hills']]
 
-            times=['Dawn', 'Morning', 'Noon', 'Day', 'Evening', 'Dusk']
-            weathers=['Clear', 'Good', 'Hazy', 'Thin clouds', 'Cloudy',
+            times=['Dawn', 'Morning', 'Morning', 'Morning', 'Morning', 'Noon', 'Noon', 'Noon', 'Noon', 'Noon', 'Day', 'Day', 'Day', 'Day', 'Day', 'Evening', 'Evening', 'Evening', 'Evening', 'Dusk']
+            weathers=['Clear', 'Clear', 'Good', 'Good', 'Hazy', 'Thin clouds', 'Thin clouds', 'Cloudy', 'Cloudy',
                      'Overcast', 'Blind', 'Rain']
 
             random.shuffle(maps)
