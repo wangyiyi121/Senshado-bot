@@ -1,6 +1,7 @@
 import discord
 from discord.ext.commands import Bot
 from discord.ext import commands
+from discord.utils import get
 import asyncio
 import random
 import os
@@ -29,8 +30,19 @@ def on_message(message):
         if message.content.startswith("-botstatus"):
             yield from client.send_message(message.channel,"I'm working well here!")
         if message.content.startswith("thisIsAnUpdate"):
-            msg = yield from client.get_message(message.channel, "594769088321028116")
-            yield from client.edit_message(msg, 'updated!')
+            schoolList=["493831665295294479","493829428300873728","493981768437858305","493830210689433600"]
+            fullList=[]
+            for school in schoolList:
+                role = get(message.server.roles, id=i)
+                sum = 0
+                for member in message.server.members:
+                    if role in member.roles:
+                        sum += 1
+                yield from client.send_message(message.channel,role.name+str(sum))
+            
+            
+            #msg = yield from client.get_message(message.channel, "594769088321028116")
+            #yield from client.edit_message(msg, 'updated!')
             
     if message.channel.id=="538748795547025408":
         if message.content.startswith("makematch"):
