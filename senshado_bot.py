@@ -29,6 +29,7 @@ def on_message(message):
     if message.channel.id=="496541228771573770":
         if message.content.startswith("-botstatus"):
             yield from client.send_message(message.channel,"I'm working well here!")
+    if message.channel.id=="535235959948574740":
         if message.content.startswith("thisIsAnUpdate"):
             schoolList=['493834150613221386', '493831572160774203', '493830666497163264',
                         '493831665295294479', '493981457539268618', '493829480176156682',
@@ -68,7 +69,7 @@ def on_message(message):
                     text += " "
                 if sum < 10:
                     text += " "
-                text += str(sum) + " members\n"
+                text += str(sum) + " members\n\n"
                 if sum >= 35:
                     fullList.append([role.name,icon])
             text += "```\n"
