@@ -5,7 +5,6 @@ from discord.utils import get
 import asyncio
 import random
 import os
-import time
 
 Client=discord.Client()
 client=commands.Bot(command_prefix="")
@@ -50,7 +49,7 @@ def on_message(message):
                 text += str(sum) + " members\n"
                 if sum >= 35:
                     fullList.append([role.name,icon])
-            text += "```\n" + time.asctime(time.gmtime()) + " UTC\n"
+            text += "```\n"
             for i in fullList:
                 text += i[0] + " is full " + i[1]
             yield from client.send_message(message.channel,text)
