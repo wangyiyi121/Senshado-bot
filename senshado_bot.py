@@ -34,7 +34,7 @@ def on_message(message):
             iconList=["<:Bellwall:495722087638499358>","<:Pravda:493969529072779264>","<:Maple:493982121308848128>","<:StGloriana:493971000250073099>","<:kebab:585624583026245633>","<:saunders:493970907606286337>"]
             fullList=[]
             text="```"
-            for i in len(schoolList):
+            for i in range(len(schoolList)):
                 role = get(message.server.roles, id=schoolList[i])
                 icon = iconList[i]
                 sum = 0
