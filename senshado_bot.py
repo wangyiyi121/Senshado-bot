@@ -27,7 +27,8 @@ def on_message(message):
                     
     if message.channel.id=="496541228771573770":
         if message.content.startswith("-botstatus"):
-            yield from client.send_messsage(message.channel,"I'm working well here!")
+            yield from client.send_message(message.channel,"I'm working well here!")
+            
     if message.channel.id=="538748795547025408":
         if message.content.startswith("makematch"):
             #yield from client.send_message(message.channel,"Say hello!")
