@@ -30,15 +30,29 @@ def on_message(message):
         if message.content.startswith("-botstatus"):
             yield from client.send_message(message.channel,"I'm working well here!")
         if message.content.startswith("thisIsAnUpdate"):
-            schoolList=["493831665295294479","493829428300873728","493981768437858305","493830210689433600"]
+            schoolList=["493831665295294479","493829428300873728","493981768437858305","493830210689433600","495301493830975508","493830293761818634"]
+            iconList=["<:Bellwall:495722087638499358>","<:Pravda:493969529072779264>","<:Maple:493982121308848128>","<:StGloriana:493971000250073099>","<:kebab:585624583026245633>","<:saunders:493970907606286337>"]
             fullList=[]
-            for school in schoolList:
-                role = get(message.server.roles, id=school)
+            text="```"
+            for i in len(schoolList):
+                role = get(message.server.roles, id=schoolList[i])
+                icon = iconList[i]
                 sum = 0
                 for member in message.server.members:
                     if role in member.roles:
                         sum += 1
-                yield from client.send_message(message.channel,role.name+str(sum))
+                text += role.name
+                for j in range(len(role.name),34):
+                    text += " "
+                if sum < 10:
+                    text += " "
+                text += str(sum) + " members\n"
+                if sum >= 35:
+                    fullList.append([role.name,icon])
+            text += "```\n" + time.asctime(time.gmtime()) + " UTC\n"
+            for i in fullList:
+                text += i[0] + " is full " + i[1]
+            yield from client.send_message(message.channel,text)
             
             
             #msg = yield from client.get_message(message.channel, "594769088321028116")
