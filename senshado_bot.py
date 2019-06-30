@@ -33,7 +33,7 @@ def on_message(message):
             schoolList=["493831665295294479","493829428300873728","493981768437858305","493830210689433600"]
             fullList=[]
             for school in schoolList:
-                role = get(message.server.roles, id=i)
+                role = get(message.server.roles, id=school)
                 sum = 0
                 for member in message.server.members:
                     if role in member.roles:
