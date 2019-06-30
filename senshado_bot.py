@@ -51,7 +51,7 @@ def on_message(message):
                     fullList.append([role.name,icon])
             text += "```\n"
             for i in fullList:
-                text += i[0] + " is full " + i[1]
+                text += i[0] + " is full " + i[1] + "\n"
             yield from client.send_message(message.channel,text)
             
             
