@@ -28,6 +28,9 @@ def on_message(message):
     if message.channel.id=="496541228771573770":
         if message.content.startswith("-botstatus"):
             yield from client.send_message(message.channel,"I'm working well here!")
+        if message.content.startswith("thisIsAnUpdate"):
+            msg = yield from client.get_message(message.channel, "594769088321028116")
+            yield from client.edit_message(msg, 'updated!')
             
     if message.channel.id=="538748795547025408":
         if message.content.startswith("makematch"):
