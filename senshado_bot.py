@@ -24,6 +24,10 @@ def on_message(message):
                     yield from client.send_message(message.author,"Hey there! Please don't send links in the general channel. Your message was auto deleted by the bot made by the Sensha-do Federation.\nHere's your message if you wish to edit it:\n%s" % message.content)
                     yield from client.delete_message(message)
                     break
+                    
+    if message.channel.id=="496541228771573770":
+        if message.content.startswith("-botstatus"):
+            yield from client.send_messsage(message.channel,"I'm working well here!")
     if message.channel.id=="538748795547025408":
         if message.content.startswith("makematch"):
             #yield from client.send_message(message.channel,"Say hello!")
