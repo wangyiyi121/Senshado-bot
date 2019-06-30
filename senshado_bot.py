@@ -3,6 +3,7 @@ from discord.ext.commands import Bot
 from discord.ext import commands
 import asyncio
 import random
+import os
 
 Client=discord.Client()
 client=commands.Bot(command_prefix="")
@@ -65,5 +66,6 @@ def on_message(message):
                 except:
                     yield from client.send_message(message.channel,"Please respect the bot. The proper command is:\nmakematch {n}\nFor example:\nmakematch 5")
 
-                      
-client.run("NTIyMTU0MDM3MjU3MTc1MDQx.XRhLPA.BoeRsxZkuh3T9pZVgVuVQ7DNDFs")
+
+access_token= os.environ["ACCESS_TOKEN"]
+client.run("access_token")
