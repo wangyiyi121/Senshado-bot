@@ -29,6 +29,35 @@ def on_message(message):
     if message.channel.id=="496541228771573770":
         if message.content.startswith("-botstatus"):
             yield from client.send_message(message.channel,"I'm working well here!")
+        if message.content.startswith("-iconcheck"):
+            schoolList=['493834150613221386', '493831572160774203', '493830666497163264',
+                        '493831665295294479', '493981457539268618', '493829480176156682',
+                        '493830747560345600', '493826201211633684', '497048841569304586',
+                        '493962214424838165', '493831211937169418', '495301493830975508',
+                        '497087272001470465', '493828564949663745', '493828483982819329',
+                        '493830748105736202', '493981768437858305', '494603071331237930',
+                        '493829428300873728', '493830293761818634', '493830210689433600',
+                        '495291519117426708', '493971616569753610', '493962547255443486',
+                        '493961626198867968', '493971793678434305', '495293213398269972',
+                        '493971901710860314']
+            iconList=['<:Selection:495457986077130752> ', '<:Anzio:493969564372303874>',
+                      '<:BCFreedom:494331126731505664> ', '<:Bellwall:495722087638499358> ',
+                      '<:BD:524694874641924106> ', '<:Bonple:493970410581524482> ',
+                      '<:ChiHaTan:493971191565123584> ', '<:Count:493971570159648783> ',
+                      '<:Gilbert:557986032373465118> ', '<:Gregor:493970310379470848> ',
+                      '<:Jatkosota:493969722446970890>', '<:kebab:585624583026245633> ',
+                      '<:Koala:493971078104743947> ', '<:Kuromorimine:493969388161204244> ',
+                      '<:Ooarai:495000944417701888> ', '<:Maginot:493970721500954646> ',
+                      '<:Maple:493982121308848128> ', '<:Neutrality:549055966990041109> ',
+                      '<:Pravda:493969529072779264> ', '<:saunders:493970907606286337> ',
+                      '<:StGloriana:493971000250073099> ', '<:Tategoto:549055046155894804> ',
+                      '<:tatenashi:493970798231683083> ', '<:Viggen:493970207853903884> ',
+                      '<:Viking:498638499973562381> ', '<:Waffle:510282243504340992> ',
+                      '<:WKnotGAy:574069286595723283> ', '<:Yogurt:493970648473796613>']
+            for i in range(len(schoolList)):
+                role = get(message.server.roles, id=schoolList[i])
+                icon = iconList[i]
+                yield from client.send_message(message.channel, role.name + " " + icon)
     if message.channel.id=="535235959948574740":
         if message.content.startswith("thisIsAnUpdate"):
             schoolList=['493834150613221386', '493831572160774203', '493830666497163264',
@@ -75,12 +104,13 @@ def on_message(message):
             text += "```\n"
             for i in fullList:
                 text += i[0] + " is full " + i[1] + "\n"
-            yield from client.send_message(message.channel,text)
+            text += "\nThe member count is automatically updated with 3 hour intervals, 8 times a day."
+            #yield from client.send_message(message.channel,text)
+            
+            
+            msg = yield from client.get_message(message.channel, "594793351329349643")
+            yield from client.edit_message(msg, text)
             yield from client.delete_message(message)
-            
-            
-            #msg = yield from client.get_message(message.channel, "594769088321028116")
-            #yield from client.edit_message(msg, 'updated!')
             
     if message.channel.id=="538748795547025408":
         if message.content.startswith("makematch"):
