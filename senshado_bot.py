@@ -66,4 +66,4 @@ def on_message(message):
                     yield from client.send_message(message.channel,"Please respect the bot. The proper command is:\nmakematch {n}\nFor example:\nmakematch 5")
 
                       
-client.run("NTIyMTU0MDM3MjU3MTc1MDQx.DvG2cA.RTXnK_U2Yzh48ImJU9lzYxcc3lc")
+client.run("XXXX")
