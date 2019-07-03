@@ -5,7 +5,7 @@ from discord.utils import get
 import asyncio
 import random
 import os
-import time
+import time as UTC_Clock
 
 Client=discord.Client()
 client=commands.Bot(command_prefix="")
@@ -54,7 +54,7 @@ def on_message(message):
                 icon = iconList[i]
                 yield from client.send_message(message.channel, role.name + " " + icon)
         if message.content.startswith("-currenttime"):
-            yield from client.send_message(message.channel,time.asctime(time.gmtime()))
+            yield from client.send_message(message.channel,UTC_Clock.asctime(UTC_Clock.gmtime()))
     if message.channel.id=="535235959948574740":
         if message.content.startswith("thisIsAnUpdate"):
             fullList=[]
