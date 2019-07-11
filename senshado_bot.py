@@ -60,7 +60,7 @@ def on_member_update(before, after):
         #yield from client.send_message(message.channel,text)
         
         
-        msg = yield from client.get_message(get_channel(535235959948574740), "594793351329349643")
+        msg = yield from client.get_message(cliemt.get_channel(535235959948574740), "594793351329349643")
         yield from client.edit_message(msg, text)
 
 
