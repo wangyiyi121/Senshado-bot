@@ -34,6 +34,9 @@ def on_ready():
 
 @client.event
 @asyncio.coroutine
+def on_member_update():
+@client.event
+@asyncio.coroutine
 def on_message(message):
     if message.channel.id=="493819751529840652":
         l=message.content.lower()
