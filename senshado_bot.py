@@ -77,7 +77,7 @@ def on_message(message):
             text += "```\n"
             for i in fullList:
                 text += i[0] + " is full " + i[1] + "\n"
-            text += "\nThe member count is automatically updated with 3 hour intervals, 8 times a day.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
+            text += "\nThe member count is automatically updated once per minute.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
             #yield from client.send_message(message.channel,text)
             
             
