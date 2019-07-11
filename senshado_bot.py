@@ -56,11 +56,11 @@ def on_member_update(before, after):
         text += "```\n"
         for i in fullList:
             text += i[0] + " is full " + i[1] + "\n"
-        text += "\nThe member count is automatically updated once per minute.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
+        text += "\nThe member count is updated automatically.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
         #yield from client.send_message(message.channel,text)
         
         
-        msg = yield from client.get_message(cliemt.get_channel(535235959948574740), "594793351329349643")
+        msg = yield from client.get_message(client.get_channel(535235959948574740), "594793351329349643")
         yield from client.edit_message(msg, text)
 
 
@@ -110,7 +110,7 @@ def on_message(message):
             text += "```\n"
             for i in fullList:
                 text += i[0] + " is full " + i[1] + "\n"
-            text += "\nThe member count is automatically updated once per minute.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
+            text += "\nThe member count is updated automatically.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
             #yield from client.send_message(message.channel,text)
             
             
