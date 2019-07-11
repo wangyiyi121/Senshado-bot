@@ -36,7 +36,33 @@ def on_ready():
 @asyncio.coroutine
 def on_member_update(before, after):
     if before.roles!=after.roles:
-        print(before)
+        fullList=[]
+        text="```"
+        for i in range(len(schoolList)):
+            role = get(message.server.roles, id=schoolList[i])
+            icon = iconList[i]
+            sum = 0
+            for member in message.server.members:
+                if role in member.roles:
+                    sum += 1
+            text += role.name
+            for j in range(len(role.name),34):
+                text += " "
+            if sum < 10:
+                text += " "
+            text += str(sum) + " members\n\n"
+            if sum >= 35:
+                fullList.append([role.name,icon])
+        text += "```\n"
+        for i in fullList:
+            text += i[0] + " is full " + i[1] + "\n"
+        text += "\nThe member count is automatically updated once per minute.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
+        #yield from client.send_message(message.channel,text)
+        
+        
+        msg = yield from client.get_message(get_channel(535235959948574740), "594793351329349643")
+        yield from client.edit_message(msg, text)
+
 
 
 @client.event
