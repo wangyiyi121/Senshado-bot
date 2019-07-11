@@ -34,7 +34,10 @@ def on_ready():
 
 @client.event
 @asyncio.coroutine
-def on_member_update():
+def on_member_update(before, after):
+    print(before,"\n",after)
+
+
 @client.event
 @asyncio.coroutine
 def on_message(message):
