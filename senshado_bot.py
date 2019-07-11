@@ -35,7 +35,8 @@ def on_ready():
 @client.event
 @asyncio.coroutine
 def on_member_update(before, after):
-    print(before,"\n",after)
+    if before.roles!=after.roles:
+        print(before)
 
 
 @client.event
