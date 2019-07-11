@@ -39,10 +39,10 @@ def on_member_update(before, after):
         fullList=[]
         text="```"
         for i in range(len(schoolList)):
-            role = get(message.server.roles, id=schoolList[i])
+            role = get(before.server.roles, id=schoolList[i])
             icon = iconList[i]
             sum = 0
-            for member in message.server.members:
+            for member in before.server.members:
                 if role in member.roles:
                     sum += 1
             text += role.name
