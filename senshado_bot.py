@@ -31,9 +31,9 @@ SWList=['595024594600198164', '595024689324228618', '595024774019940382', '59502
         '595025355191091250', '595025413781192708', '595025467665285131', '595025536879951913', '595025595172257902', 
         '595025677414039553', '595025781852209162', '595025852031434752', '595030500721295362', '595030629079449601', 
         '595030690748432385']
-SWIconList=[':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', 
-            ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', 
-            ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:']
+SWIconList=[':flag_de:', ':flag_gb:', ':flag_ro:', ':flag_ca:', ':flag_jp:', ':flag_fr:', ':flag_gr:', ':flag_ea:', 
+            ':flag_us:', ':flag_bg:', ':flag_nz:', ':flag_ru:', ':flag_at:', ':flag_it:', ':flag_th:', ':flag_za:', 
+            ':flag_fi:', ':flag_si:', ':flag_au:', ':flag_no:', ':flag_be:']
 
 @client.event
 @asyncio.coroutine
@@ -97,7 +97,7 @@ def on_message(message):
         if message.content.startswith("-swiconcheck"):
             for i in range(len(SWList)):
                 role = get(message.server.roles, id=SWList[i])
-                icon = iconList[i]
+                icon = SWIconList[i]
                 yield from client.send_message(message.channel, role.name + " " + icon)
         if message.content.startswith("-currenttime"):
             yield from client.send_message(message.channel,UTC_Clock.asctime(UTC_Clock.gmtime()))
