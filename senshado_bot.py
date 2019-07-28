@@ -104,7 +104,7 @@ def on_message(message):
     if message.channel.id=="535235959948574740":
         if message.content.startswith("thisIsAnUpdate"):
             fullList=[]
-            text="```"
+            text="Senshado School Member Count:```"
             for i in range(len(schoolList)):
                 role = get(message.server.roles, id=schoolList[i])
                 icon = iconList[i]
@@ -123,13 +123,43 @@ def on_message(message):
             text += "```\n"
             for i in fullList:
                 text += i[0] + " is full " + i[1] + "\n"
-            text += "\nThe member count is updated automatically.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
+            #text += "\nThe member count is updated automatically.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
             #yield from client.send_message(message.channel,text)
             
             
             msg = yield from client.get_message(message.channel, "594793351329349643")
             yield from client.edit_message(msg, text)
             yield from client.delete_message(message)
+            
+            ##################################################
+            
+            fullList=[]
+            text="Strike Witches Nation Member Count:```"
+            for i in range(len(SWList)):
+                role = get(message.server.roles, id=SWList[i])
+                icon = SWIconList[i]
+                sum = 0
+                for member in message.server.members:
+                    if role in member.roles:
+                        sum += 1
+                text += role.name
+                for j in range(len(role.name),34):
+                    text += " "
+                if sum < 10:
+                    text += " "
+                text += str(sum) + " members\n\n"
+                if sum >= 35:
+                    fullList.append([role.name,icon])
+            text += "```\n"
+            for i in fullList:
+                text += i[0] + " is full " + i[1] + "\n"
+            text += "\nThe member count is updated automatically.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
+            yield from client.send_message(message.channel,text)
+            
+            
+            #msg = yield from client.get_message(message.channel, "594793351329349643")
+            #yield from client.edit_message(msg, text)
+            #yield from client.delete_message(message)
             
     if message.channel.id=="538748795547025408":
         if message.content.startswith("makematch"):
