@@ -45,10 +45,39 @@ def on_ready():
 def on_member_update(before, after):
     if before.roles!=after.roles:
         fullList=[]
-        text="```"
+        text="Senshado School Member Count:```"
         for i in range(len(schoolList)):
             role = get(before.server.roles, id=schoolList[i])
             icon = iconList[i]
+            sum = 0
+            for member in before.server.members:
+                if role in member.roles:
+                    sum += 1
+            text += role.name
+            for j in range(len(role.name),34):
+                text += " "
+            if sum < 10:
+                text += " "
+            text += str(sum) + " members\n\n"
+            if sum >= 35:
+                fullList.append([role.name,icon])
+        text += "```\n"
+        for i in fullList:
+            text += i[0] + " is full " + i[1] + "\n"
+        #text += "\nThe member count is updated automatically.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
+        #yield from client.send_message(message.channel,text)
+        
+        
+        msg = yield from client.get_message(client.get_channel("535235959948574740"), "594793351329349643")
+        yield from client.edit_message(msg, text)
+            
+        #########################################
+
+        fullList=[]
+        text="Strike Witches Nation Member Count:```"
+        for i in range(len(SWList)):
+            role = get(before.server.roles, id=SWList[i])
+            icon = SWIconList[i]
             sum = 0
             for member in before.server.members:
                 if role in member.roles:
@@ -68,7 +97,7 @@ def on_member_update(before, after):
         #yield from client.send_message(message.channel,text)
         
         
-        msg = yield from client.get_message(client.get_channel("535235959948574740"), "594793351329349643")
+        msg = yield from client.get_message(client.get_channel("535235959948574740"), "604856268406128640")
         yield from client.edit_message(msg, text)
 
 
@@ -154,12 +183,12 @@ def on_message(message):
             for i in fullList:
                 text += i[0] + " is full " + i[1] + "\n"
             text += "\nThe member count is updated automatically.\nLast update was at " + UTC_Clock.asctime(UTC_Clock.gmtime()) + " (UTC timezone)"
-            yield from client.send_message(message.channel,text)
+            #yield from client.send_message(message.channel,text)
             
             
-            #msg = yield from client.get_message(message.channel, "594793351329349643")
-            #yield from client.edit_message(msg, text)
-            #yield from client.delete_message(message)
+            msg = yield from client.get_message(message.channel, "604856268406128640")
+            yield from client.edit_message(msg, text)
+            yield from client.delete_message(message)
             
     if message.channel.id=="538748795547025408":
         if message.content.startswith("makematch"):
