@@ -26,6 +26,14 @@ iconList=['<:Selection:495457986077130752> ', '<:Anzio:493969564372303874>', '<:
           '<:Tategoto:549055046155894804> ', '<:tatenashi:493970798231683083> ', '<:Viggen:493970207853903884> ',
           '<:Viking:498638499973562381> ', '<:Waffle:510282243504340992> ', '<:WKnotGAy:574069286595723283> ',
           '<:Yogurt:493970648473796613>']
+SWList=['595024594600198164', '595024689324228618', '595024774019940382', '595024833574600705', '595024912423321600', 
+        '595025046838181899', '595025101531906059', '595025152019005440', '595025215893929984', '595025292465143838', 
+        '595025355191091250', '595025413781192708', '595025467665285131', '595025536879951913', '595025595172257902', 
+        '595025677414039553', '595025781852209162', '595025852031434752', '595030500721295362', '595030629079449601', 
+        '595030690748432385']
+SWIconList=[':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', 
+            ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', 
+            ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:', ':flag_jp:']
 
 @client.event
 @asyncio.coroutine
@@ -84,6 +92,11 @@ def on_message(message):
         if message.content.startswith("-iconcheck"):
             for i in range(len(schoolList)):
                 role = get(message.server.roles, id=schoolList[i])
+                icon = iconList[i]
+                yield from client.send_message(message.channel, role.name + " " + icon)
+        if message.content.startswith("-swiconcheck"):
+            for i in range(len(SWList)):
+                role = get(message.server.roles, id=SWList[i])
                 icon = iconList[i]
                 yield from client.send_message(message.channel, role.name + " " + icon)
         if message.content.startswith("-currenttime"):
