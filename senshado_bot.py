@@ -158,7 +158,7 @@ def on_message(message):
             
             msg = yield from client.get_message(message.channel, "594793351329349643")
             yield from client.edit_message(msg, text)
-            yield from client.delete_message(message)
+            #yield from client.delete_message(message)
             
             ##################################################
             
